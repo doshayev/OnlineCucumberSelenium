@@ -12,7 +12,12 @@ import org.junit.runner.RunWith;
         strict = false,
         //tags = "@dashboard and @driver",
         tags = "",
-        plugin = "html:target/cucumber-html-report"
+        plugin = {
+                "html:target/cucumber-html-report",
+                //"progress:target/progress-html-report"
+
+
+        }
 )
 public class CucumberRunner {
 
