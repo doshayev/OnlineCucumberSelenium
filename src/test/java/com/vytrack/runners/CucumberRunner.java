@@ -9,7 +9,8 @@ import org.junit.runner.RunWith;
         glue = "com/vytrack/step_definitions",
         features = "src/test/resources/features",
         dryRun = false,
-        strict = true
+        strict = false,
+        tags = "@dashboard and @driver"
 )
 public class CucumberRunner {
 
