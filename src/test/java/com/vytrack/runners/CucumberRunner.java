@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
         strict = false,
         //tags = "@dashboard and @driver",
-        tags = "",
+        tags = "@activities",
         plugin = {
                 "html:target/cucumber-html-report",
                 //"progress:target/progress-html-report"
