@@ -20,9 +20,9 @@ Feature: Create calendar event
     And user navigates to "Activities" and "Calendar Events"
     Then user clicks on create calendar event button
     And user enters new calendar event information:
-      | description| On this meeting we discuss what went well, what wnt wrong and what can be improved |
-      | title      | Sprint Retrospective                                                               |
+      | description | On this meeting we discuss what went well, what went wrong and what can be improved |
+      | title       | Sprint Retrospective                                                                |
     Then user click on save and close button
-    And user verifies that new calendar event
-      | description| On this meeting we discuss what went well, what wnt wrong and what can be improved |
-      | title      | Sprint Retrospective                                                               |
+    And user verifies new calendar event was created successfully
+      | description | On this meeting we discuss what went well, what went wrong and what can be improved |
+      | title       | Sprint Retrospective                                                                |
