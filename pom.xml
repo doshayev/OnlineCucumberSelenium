@@ -33,6 +33,7 @@
                     <parallel>classes</parallel>
                     <threadCount>2</threadCount>
                     <perCoreThreadCount>false</perCoreThreadCount>
+                    <forkCount>2C</forkCount>
                     <includes>
                         <include>**/*Runner.java</include>
                     </includes>
