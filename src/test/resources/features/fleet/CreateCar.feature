@@ -14,6 +14,7 @@ Feature: Create a car
       | License Plate | Driver    | Location | Model Year | Color |
       | SDET          | Pro Racer | London   | 2020       | Red   |
 
+
   @create_car_ddt
   Scenario Outline: Add new car for driver <driver>
     Given user is on the login page
@@ -26,6 +27,8 @@ Feature: Create a car
     And user verifies that car info is displayed:
       | License Plate   | Driver   | Location   | Model Year   | Color   |
       | <license_plate> | <driver> | <location> | <model_year> | <color> |
+
+
     Examples: cars test data
       | license_plate | driver      | location        | model_year | color  |
       | 000           | pilot       | Washington D.C. | 2010       | purple |
