@@ -2,7 +2,7 @@ package com.vytrack.step_definitions;
 
 import com.vytrack.pages.activities.CalendarEventsPage;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
+import org.testng.Assert;
 
 import java.util.Map;
 
@@ -57,5 +57,4 @@ public class CreateCalendarEventStepDefinitions {
         Assert.assertEquals(dataTable.get("description"), calendarEventsPage.getGeneralInfoDescriptionText());
         Assert.assertEquals(dataTable.get("title"), calendarEventsPage.getGeneralInfoTitleText());
     }
-
 }
