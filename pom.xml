@@ -70,7 +70,7 @@
                             <useUnlimitedThreads>true</useUnlimitedThreads>
                             <includes>
                                 <!-- for  run class or classes-->
-                                <include>**/SmokeTestRunner*.java</include>
+                                <include>**/RegressionRunner*.java</include>
                             </includes>
                             <testFailureIgnore>true</testFailureIgnore>
                         </configuration>
