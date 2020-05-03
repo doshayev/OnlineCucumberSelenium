@@ -1,10 +1,13 @@
 package com.vytrack.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -27,12 +30,15 @@ public class Driver {
      *
      * @return
      */
-    public synchronized static WebDriver getDriver() {
+    public synchronized static WebDriver getDriver() throws MalformedURLException {
         //if webdriver object doesn't exist
         //create it
         if (driverPool.get() == null) {
             //specify browser type in configuration.properties file
             String browser = ConfigurationReader.getProperty("browser").toLowerCase();
+            if (System.getenv("browser")!=null){
+                browser = System.getenv("browser");
+            }
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
@@ -47,6 +53,12 @@ public class Driver {
                     options.setHeadless(true);
                     driverPool.set(new ChromeDriver(options));
                     break;
+                case "chrome-remote":
+                    URL url = new URL("http://34.238.39.30:4444/wd/hub");
+                    DesiredCapabilities desiredCapabilities= new DesiredCapabilities();
+                    desiredCapabilities.setBrowserName(BrowserType.CHROME);
+                    desiredCapabilities.setPlatform(Platform.ANY);
+                    driverPool.set(new RemoteWebDriver(url,desiredCapabilities));
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
